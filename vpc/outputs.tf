@@ -17,3 +17,7 @@ output "alb_security_group_id" {
 output "app_security_group_id" {
   value = aws_security_group.app.id
 }
+
+output "vpc_cidr_block" {
+  value = aws_vpc.this.cidr_block
+}
