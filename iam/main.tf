@@ -28,7 +28,7 @@ resource "aws_iam_role_policy_attachment" "task_execution_managed" {
 data "aws_iam_policy_document" "read_api_key" {
   statement {
     actions   = ["secretsmanager:GetSecretValue"]
-    resources = [aws_secretsmanager_secret.api_key.arn]
+    resources = concat([aws_secretsmanager_secret.api_key.arn], var.additional_secret_arns)
   }
 }
 
